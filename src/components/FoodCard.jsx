@@ -14,7 +14,7 @@ const FoodCard = ({ food }) => {
     donator_name,
     donator_image,
     donator_email,
-  } = food;
+  } = food || {};
   return (
     <div className="card bg-base-100 w-96 shadow-xl">
       <div className="card-body items-center text-center">

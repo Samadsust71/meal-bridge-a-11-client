@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom"
 import Loading from "../../components/Loading";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import RequestFormModal from "../../components/RequestFormModal";
 
 
 
@@ -38,10 +39,12 @@ const SingleFoodDetails = () => {
         <p>{food?.donator_name}</p>
         <p>{food?.additional_notes}</p>
         <div className="card-actions">
-          <button className="btn btn-primary">Request</button>
+          <button  onClick={() => document.getElementById(food?._id).showModal()} className="btn btn-primary">Request</button>
         </div>
       </div>
+      
     </div>
+    <RequestFormModal food={food} />
     </div>
   )
 }
