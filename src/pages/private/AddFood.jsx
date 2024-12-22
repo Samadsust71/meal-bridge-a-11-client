@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { CalculatorIcon, CalendarDaysIcon, Images, MapPin, NotebookPenIcon, SaladIcon } from "lucide-react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import { useMutation } from "@tanstack/react-query";
 
 
 const AddFood = () => {
@@ -11,8 +12,20 @@ const AddFood = () => {
  const [startDate, setStartDate] = useState(new Date());
  const axiosInstance = useAxiosSecure()
  const{user} = useAuth()
+
+ const {isPending,mutateAsync}= useMutation({mutationFn: async(foodData)=>{
+         await axiosInstance.post('/foods',foodData) 
+ },
+ onSuccess: ()=>{
+       console.log('data saved')
+ },
+
+ onError: ()=>{
+      console.log("something wrong")
+ }
+})
   
-const handleSubmit = (e) => {
+const handleSubmit = async(e) => {
   e.preventDefault();
   const form = e.target
   const donator_image = user?.photoURL
@@ -27,9 +40,9 @@ const handleSubmit = (e) => {
   const expired_date =startDate
 
   const formData= {food_name,food_image,quantity,location,additional_notes,expired_date,donator_name,donator_image,donator_email,status} 
-  console.log(formData)
-  axiosInstance.post('/foods',formData)
-  .then(res=>console.log(res.data))
+
+  await mutateAsync(formData)
+  
 
 };
 
@@ -129,7 +142,7 @@ const handleSubmit = (e) => {
         {/* Submit Button */}
         <div className="form-control mt-6">
           <button type="submit" className="btn btn-primary">
-          Add 
+            {isPending?'Adding...':'Add'}
           </button>
         </div>
       </form>

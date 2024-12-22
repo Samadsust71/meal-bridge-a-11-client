@@ -1,58 +1,62 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import FoodCard from "../../components/FoodCard";
-import toast from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
+
+import Loading from "../../components/Loading";
 
 const AvailableFoods = () => {
   const axiosInstance = useAxiosSecure();
-  const [foods, setFoods] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("");
 
-  useEffect(() => {
-    axiosInstance
-      .get("/foods")
-      .then((res) => setFoods(res.data))
-      .catch((err) => toast.error(err));
-  }, [axiosInstance]);
+  const {
+    data: foods,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["foods", search, sort],
+    queryFn: async () => {
+      const { data } = await axiosInstance.get(
+        `/foods?status=available&search=${search}&sort=${sort}`
+      );
+      return data;
+    },
+  });
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // Perform search logic here if needed
-  };
+  if (isError) return <p className="text-center">No foods available.</p>;
 
   const handleReset = () => {
-    setSearchTerm("");
-    // Reset other states or filters as required
+    setSearch("");
+    setSort("");
   };
 
   return (
     <div className=" py-10  flex flex-col justify-between">
       <div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-5">
-          <form onSubmit={handleSearch}>
-            <div className="flex p-1 overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
-              <input
-                className="px-6 py-2 outline-none focus:placeholder-transparent"
-                type="text"
-                name="search"
-                placeholder="Enter food name"
-                aria-label="Enter food name"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <button
-                type="submit"
-                className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
-              >
-                Search
-              </button>
-            </div>
-          </form>
+          <div className="flex p-1 overflow-hidden border rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
+            <input
+              className="px-6 py-2 outline-none focus:placeholder-transparent"
+              type="text"
+              name="search"
+              placeholder="Enter food name"
+              aria-label="Enter food name"
+              defaultValue={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+              Search
+            </button>
+          </div>
+
           <div>
             <select
               name="category"
               id="category"
               className="border p-4 rounded-md"
+              defaultValue={sort}
+              onChange={(e) => setSort(e.target.value)}
             >
               <option value="">Sort By Expired Date</option>
               <option value="dsc">Descending Order</option>
@@ -65,14 +69,16 @@ const AvailableFoods = () => {
         </div>
       </div>
       <div>
-        {foods.length > 0 ? (
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-            {foods.map((food) => (
-              <FoodCard key={food._id} food={food} />
-            ))}
-          </div>
+        {isLoading ? (
+          <Loading />
         ) : (
-          <p>No foods available.</p>
+          (
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+              {foods.map((food) => (
+                <FoodCard key={food._id} food={food} />
+              ))}
+            </div>
+          ) || <p>No foods available.</p>
         )}
       </div>
     </div>
