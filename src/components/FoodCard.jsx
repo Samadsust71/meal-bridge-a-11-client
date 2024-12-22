@@ -1,4 +1,7 @@
-// eslint-disable-next-line react/prop-types
+/* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
+
+
 const FoodCard = ({ food }) => {
   const {
     _id,
@@ -22,7 +25,7 @@ const FoodCard = ({ food }) => {
         <p>{donator_name}</p>
         <p>{additional_notes}</p>
         <div className="card-actions">
-          <button className="btn btn-primary">details</button>
+          <Link to={`/foods/${_id}`} className="btn btn-primary">details</Link>
         </div>
       </div>
     </div>
