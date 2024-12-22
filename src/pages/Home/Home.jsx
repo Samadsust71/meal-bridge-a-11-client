@@ -1,9 +1,10 @@
+import { Button } from "@/components/ui/button"
 
 
 const Home = () => {
   return (
     <div>
-      Home
+     <Button>Hello</Button>
     </div>
   )
 }

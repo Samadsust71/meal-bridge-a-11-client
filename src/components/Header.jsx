@@ -1,14 +1,13 @@
 
+
 import { FaBars } from "react-icons/fa";
 import {  NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/meal-bridge-logo-rs.png"
 import userIcon from "../assets/userIcon.jpg"
-
 import useAuth from '../hooks/useAuth';
 
 const Header = () => {
-
-  const { logOutUser, user } = useAuth()
+  const { signOutUser, user } = useAuth()
   const navigate = useNavigate();
   const links = (
     <>
@@ -94,7 +93,6 @@ const Header = () => {
           <ul className="flex items-center gap-4">{links}</ul>
         </div>
         <div className="navbar-end items-center">
-          
           <div className="flex gap-2 items-center">
             {user && (
               <div className="relative">
@@ -113,7 +111,7 @@ const Header = () => {
 
             {user ? (
               <button
-                onClick={logOutUser}
+                onClick={signOutUser}
                 className="bg-[#FFB347] px-4 py-2 rounded-lg shadow-xl text-white transition-all duration-300"
               >
                 Logout
