@@ -14,23 +14,25 @@ const useAxiosSecure = () => {
     const {signOutUser} = useAuth()
     const navigate = useNavigate()
    
-    useEffect(()=>{
-     axiosInstance.interceptors.response.use((response)=>{
-        return response
-     },(error)=>{
-        
-         if (error.status=== 401 || error.status=== 403) {
-            signOutUser()
-            .then(()=>{
-                navigate("/signIn")
-            })
-            .catch(err=>toast.error(err.message || "Something went wrong"))
-         }
-        return Promise.reject(error)
-     })
-        
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    useEffect(() => {
+        const interceptor = axiosInstance.interceptors.response.use(
+          (response) => response,
+          (error) => {
+            if (error.response?.status === 401 || error.response?.status === 403) {
+              signOutUser()
+                .then(() => {
+                  navigate("/login");
+                })
+                .catch((err) => toast.error(err.message || "Something went wrong"));
+            }
+            return Promise.reject(error);
+          }
+        );
+      
+        return () => {
+          axiosInstance.interceptors.response.eject(interceptor);
+        };
+      }, [signOutUser, navigate]);
 
   return axiosInstance
 
