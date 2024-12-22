@@ -2,15 +2,23 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CalculatorIcon, CalendarDaysIcon, Images, MapPin, NotebookPenIcon, SaladIcon } from "lucide-react";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../hooks/useAuth";
 
 
 const AddFood = () => {
 
  const [startDate, setStartDate] = useState(new Date());
+ const axiosInstance = useAxiosSecure()
+ const{user} = useAuth()
   
 const handleSubmit = (e) => {
   e.preventDefault();
   const form = e.target
+  const donator_image = user?.photoURL
+  const donator_name = user?.displayName
+  const donator_email = user?.email
+  const status = "available"
   const food_name = form.food_name.value
   const food_image = form.food_image.value
   const quantity = parseInt(form.quantity.value)
@@ -18,8 +26,10 @@ const handleSubmit = (e) => {
   const additional_notes = form.additional_notes.value
   const expired_date =startDate
 
-  const formData= {food_name,food_image,quantity,location,additional_notes,expired_date} 
+  const formData= {food_name,food_image,quantity,location,additional_notes,expired_date,donator_name,donator_image,donator_email,status} 
   console.log(formData)
+  axiosInstance.post('/foods',formData)
+  .then(res=>console.log(res.data))
 
 };
 

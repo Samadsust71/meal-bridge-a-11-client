@@ -1,16 +1,17 @@
-import axios from 'axios'
-import { useEffect } from 'react'
-import useInfo from './useInfo'
+
+import  { useEffect } from 'react'
 import {  useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import axios from 'axios'
+import useAuth from './useAuth'
 
 const axiosInstance = axios.create({
-    baseURL:'https://job-portal-server-ten-kappa.vercel.app',
+    baseURL:'http://localhost:3000',
     withCredentials:true
 })
 
 const useAxiosSecure = () => {
-    const {signOutUser} = useInfo()
+    const {signOutUser} = useAuth()
     const navigate = useNavigate()
    
     useEffect(()=>{
@@ -28,6 +29,7 @@ const useAxiosSecure = () => {
         return Promise.reject(error)
      })
         
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
   return axiosInstance
