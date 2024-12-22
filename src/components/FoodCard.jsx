@@ -16,7 +16,7 @@ const FoodCard = ({ food }) => {
     donator_email,
   } = food || {};
   return (
-    <div className="card bg-base-100 w-96 shadow-xl">
+    <div className="card bg-base-100 w-full shadow-xl">
       <div className="card-body items-center text-center">
         <h2 className="card-title">{food_name}</h2>
         <p>{location}</p>

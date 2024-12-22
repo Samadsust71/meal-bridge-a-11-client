@@ -9,6 +9,7 @@ const AvailableFoods = () => {
   const axiosInstance = useAxiosSecure();
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
+  const [layout, setLayout] = useState(true)
 
   const {
     data: foods,
@@ -30,7 +31,6 @@ const AvailableFoods = () => {
     setSearch("");
     setSort("");
   };
-
   return (
     <div className=" py-10  flex flex-col justify-between">
       <div>
@@ -68,12 +68,15 @@ const AvailableFoods = () => {
           </button>
         </div>
       </div>
+      <div className="hidden lg:block">
+        <button onClick={()=>setLayout(!layout)} className="btn">Layout</button>
+      </div>
       <div>
         {isLoading ? (
           <Loading />
         ) : (
           (
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className={`grid grid-cols-2 lg:${layout?'grid-cols-3':"grid-cols-2"} gap-6`}>
               {foods.map((food) => (
                 <FoodCard key={food._id} food={food} />
               ))}
