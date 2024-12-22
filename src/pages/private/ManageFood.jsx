@@ -3,7 +3,8 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Loading from "../../components/Loading";
 import Swal from "sweetalert2";
-import { Link } from "lucide-react";
+import { Link } from "react-router-dom";
+
 
 const ManageFood = () => {
   const { user } = useAuth();
@@ -81,7 +82,7 @@ const ManageFood = () => {
                   <td>{food?.food_name}</td>
                   <td>{food?.quantity}</td>
                   <td>
-                    <Link to={`/Update-my-foods/${food?._id}`}>Update</Link>
+                    <Link state={food} to={`/updateMyFoods/${food?._id}`}>Update</Link>
                   </td>
                   <td>
                     <button onClick={()=>handleDelete(food?._id)}>delete</button>
