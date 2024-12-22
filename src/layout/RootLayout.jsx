@@ -7,7 +7,7 @@ const RootLayout = () => {
     
       <div>
         <Header/>
-        <div className="min-h-[calc(100vh-576px)]">
+        <div className="min-h-[calc(100vh-576px)] w-11/12 mx-auto">
           <Outlet/>
         </div>
         <Footer/>

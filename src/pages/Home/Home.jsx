@@ -1,10 +1,12 @@
-import { Button } from "@/components/ui/button"
+import Banner from "../../components/Banner"
+
 
 
 const Home = () => {
   return (
     <div>
-     <Button>Hello</Button>
+    <Banner/>
+
     </div>
   )
 }

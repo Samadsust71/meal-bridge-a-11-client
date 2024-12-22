@@ -11,10 +11,9 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.1",
-    "@shadcn/ui": "^0.0.4",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.5.1",
     "firebase": "^11.1.0",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
@@ -28,8 +27,8 @@
     "react-router-dom": "^7.1.0",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.15.3",
+    "swiper": "^11.1.15",
     "tailwind-merge": "^2.5.5",
-    "tailwind-variants": "^0.3.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {

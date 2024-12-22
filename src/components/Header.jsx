@@ -26,9 +26,9 @@ const Header = () => {
           className={({ isActive }) =>
             isActive ? "text-[#FFB347] font-semibold" : "text-gray-900 dark:text-white"
           }
-          to={"/allMovies"}
+          to={"/available-foods"}
         >
-          All Movies
+          Available Foods
         </NavLink>
       </li>
      {
@@ -37,9 +37,9 @@ const Header = () => {
         className={({ isActive }) =>
           isActive ? "text-[#FFB347] font-semibold" : "text-gray-900 dark:text-white"
         }
-        to={"/addMovie"}
+        to={"/add-food"}
       >
-       Add Movie
+       Add Food
       </NavLink>
     </li>
      }
@@ -49,22 +49,25 @@ const Header = () => {
           className={({ isActive }) =>
             isActive ? "text-[#FFB347] font-semibold" : "text-gray-900 dark:text-white"
           }
-          to={"/myFavorites"}
+          to={"/manage-my-foods"}
         >
-         My Favorites
+         Manage My Foods
         </NavLink>
       </li>
       }
-      <li>
+      {
+        user && <li>
         <NavLink
           className={({ isActive }) =>
             isActive ? "text-[#FFB347] font-semibold" : "text-gray-900 dark:text-white"
           }
-          to={"/about"}
+          to={"/my-food-request"}
         >
-         About
+        My Food Request
         </NavLink>
       </li>
+      }
+     
     </>
   )
   return (
