@@ -17,7 +17,7 @@ const Footer = () => {
           <div>
             
           <div className='px-2 py-1 bg-[#FFB347] rounded-lg w-fit'><p className="text-2xl font-bold text-white">
-            CineFlix
+            Meal Bridge
           </p></div>
             <p className="mt-4">
             Where Every Frame Tells a Story.
@@ -76,8 +76,9 @@ const Footer = () => {
               <div>
                 <textarea
                   placeholder="Message"
-                  className="textarea  w-full text-black focus:border-[#1B1A1A] focus:ring-[#1B1A1A]"
+                  className="textarea max-h-32 min-h-32 w-full text-black focus:border-[#1B1A1A] focus:ring-[#1B1A1A]"
                   rows="4"
+                
                 ></textarea>
               </div>
               <button

@@ -26,6 +26,7 @@ const RequestFormModal = ({ food }) => {
     additional_notes,
     donator_name,
     donator_email,
+expired_date
   } = food || {};
 
   const dialogRef = useRef(null);
@@ -197,6 +198,20 @@ const RequestFormModal = ({ food }) => {
             </div>
 
             {/*Expired Date */}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text flex items-center">
+                  <CalendarDaysIcon className="mr-2" />
+                  Expired Date
+                </span>
+              </label>
+              <DatePicker
+                className="select select-bordered w-fit"
+                selected={expired_date}
+                readOnly
+              />
+            </div>
+            {/*Requested Date */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text flex items-center">

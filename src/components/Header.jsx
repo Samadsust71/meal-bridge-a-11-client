@@ -108,7 +108,7 @@ const Header = () => {
           <div className="flex gap-2 items-center">
             <div className="block lg:hidden"><img src={logo} alt="" className="h-10 w-10 rounded-full object-cover" /></div>
             <div className='px-2 py-1 bg-[#FFB347] rounded-lg hidden lg:block'><p className="text-2xl font-bold text-white">
-            CineFlix
+            Meal Bridge
           </p></div>
           </div>
         </div>
