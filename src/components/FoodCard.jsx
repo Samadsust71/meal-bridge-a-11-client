@@ -16,7 +16,7 @@ const FoodCard = ({ food }) => {
   const navigate = useNavigate();
   return (
     <motion.div
-      className="w-[350px] shadow-lg rounded-lg p-4 border border-gray-200 hover:shadow-2xl flex flex-col"
+      className="w-full shadow-lg rounded-lg p-4 border-2 border-gray-200 hover:shadow-2xl flex flex-col"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

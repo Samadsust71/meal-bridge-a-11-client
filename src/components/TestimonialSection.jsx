@@ -41,9 +41,9 @@ const TestimonialSection = () => {
 
   return (
     <section className="py-12 bg-[#FEF5E9]">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center  mb-6">What People Are Saying!!!</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2">
+      <div>
+        <h2 className="text-2xl lg:text-4xl font-bold text-center  mb-10">What People Are Saying!!!</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* right content */}
           <div className="flex flex-col items-center justify-center">
             <form
@@ -55,31 +55,31 @@ const TestimonialSection = () => {
                 <input
                   type="text"
                   placeholder="Name"
-                  className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
                 />
                 {/* Email Input */}
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
                 />
               </div>
               {/* Phone Input */}
               <input
                 type="text"
-                placeholder="Phone"
-                className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="Role (e.g Donor)"
+                className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
               />
               {/* Message Input */}
               <textarea
                 placeholder="Message"
                 rows="4"
-                className="w-full p-3 max-h-40 min-h-40 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full p-3 max-h-40 min-h-40 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-bg"
               ></textarea>
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full p-3 bg-primary-bg text-white font-semibold rounded-full hover:bg-green-600 transition duration-200"
+                className="w-full p-3 bg-primary-bg text-white font-semibold rounded-full hover:bg-primary-bg/95 transition duration-200"
               >
                 Send It!
               </button>
