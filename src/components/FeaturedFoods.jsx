@@ -21,9 +21,12 @@ const FeaturedFoods = () => {
       });
     
       if (isError) return <p className="text-center">No foods available.</p>;
-      console.log(foods)
   return (
     <div >
+        <div className="text-center my-6">
+           <h1 className="font-semibold text-2xl">Featured Foods</h1>
+        </div>
+
         {isLoading ? (
           <Loading />
         ) : (

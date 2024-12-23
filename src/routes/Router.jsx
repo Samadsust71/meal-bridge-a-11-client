@@ -12,6 +12,7 @@ import FoodRequest from "../pages/private/FoodRequest";
 import ErrorPage from "../pages/error/ErrorPage";
 import SingleFoodDetails from "../pages/private/SingleFoodDetails";
 import UpdateFood from "../pages/private/UpdateFood";
+import Stories from "../pages/public/Stories";
 
 
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         {
             path:'/available-foods',
             element:<AvailableFoods/>
+        },
+        {
+            path:'/stories',
+            element:<Stories/>
         },
         {
             path:'/add-food',

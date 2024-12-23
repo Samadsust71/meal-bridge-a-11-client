@@ -41,6 +41,16 @@ const Header = () => {
           Available Foods
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-[#FFB347] font-semibold" : "text-gray-900 dark:text-white"
+          }
+          to={"/stories"}
+        >
+          Stories
+        </NavLink>
+      </li>
      {
       user &&  <li>
       <NavLink
