@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
@@ -7,21 +7,24 @@ const testimonials = [
     name: "Sarah Lee",
     role: "Food Donor",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
-    feedback: "MealBridge made it so easy to share surplus food with those in need. A wonderful initiative!",
+    feedback:
+      "MealBridge made it so easy to share surplus food with those in need. A wonderful initiative!",
   },
   {
     id: 2,
     name: "John Smith",
     role: "Food Recipient",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
-    feedback: "This platform helped me provide meals for my family during tough times. Truly life-changing!",
+    feedback:
+      "This platform helped me provide meals for my family during tough times. Truly life-changing!",
   },
   {
     id: 3,
     name: "Emily Brown",
     role: "Volunteer",
     image: "https://randomuser.me/api/portraits/women/68.jpg",
-    feedback: "I love how MealBridge connects donors and recipients seamlessly. Proud to be a part of this!",
+    feedback:
+      "I love how MealBridge connects donors and recipients seamlessly. Proud to be a part of this!",
   },
 ];
 
@@ -37,38 +40,84 @@ const TestimonialSection = () => {
   }, []);
 
   return (
-    <section className="py-12">
+    <section className="py-12 bg-[#FEF5E9]">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center  mb-6">
-          What People Are Saying
-        </h2>
-        <div className="relative flex justify-center items-center">
-          <AnimatePresence mode="wait">
-            {testimonials.map(
-              (testimonial, index) =>
-                index === currentIndex && (
-                  <motion.div
-                    key={testimonial.id}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.8 }}
-                    className="max-w-xl bg-base-100 p-6 rounded-lg shadow-md text-center"
-                  >
-                    <img
-                      className="w-16 h-16 rounded-full mx-auto mb-4"
-                      src={testimonial.image}
-                      alt={`${testimonial.name} photo`}
-                    />
-                    <h3 className="text-lg font-semibold  mb-1">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-sm  mb-3">{testimonial.role}</p>
-                    <p className="">{testimonial.feedback}</p>
-                  </motion.div>
-                )
-            )}
-          </AnimatePresence>
+        <h2 className="text-4xl font-bold text-center  mb-6">What People Are Saying!!!</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          {/* right content */}
+          <div className="flex flex-col items-center justify-center">
+            <form
+              className="bg-white p-8 rounded-lg shadow-lg space-y-4 w-full max-w-md"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <div className="grid grid-cols-2 gap-4">
+                {/* Name Input */}
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+                {/* Email Input */}
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+              </div>
+              {/* Phone Input */}
+              <input
+                type="text"
+                placeholder="Phone"
+                className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+              {/* Message Input */}
+              <textarea
+                placeholder="Message"
+                rows="4"
+                className="w-full p-3 max-h-40 min-h-40 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+              ></textarea>
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full p-3 bg-primary-bg text-white font-semibold rounded-full hover:bg-green-600 transition duration-200"
+              >
+                Send It!
+              </button>
+            </form>
+          </div>
+          {/* left content */}
+          <div className="relative  flex justify-center items-center text-primary">
+            <AnimatePresence mode="wait">
+              {testimonials.map(
+                (testimonial, index) =>
+                  index === currentIndex && (
+                    <motion.div
+                      key={testimonial.id}
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -50 }}
+                      transition={{ duration: 0.8 }}
+                      className="p-6 max-w-md rounded-lg shadow-md bg-white"
+                    >
+                      <div className="flex items-center gap-4">
+                        <img
+                          className="w-16 h-16 rounded-full"
+                          src={testimonial.image}
+                          alt={`${testimonial.name} photo`}
+                        />
+                        <div>
+                        <h3 className="text-lg font-semibold ">
+                          {testimonial.name}
+                        </h3>
+                        <p className="text-sm  mb-3">{testimonial.role}</p>
+                        </div>
+                      </div>
+                      <p className="mt-6">{testimonial.feedback}</p>
+                    </motion.div>
+                  )
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>

@@ -1,60 +1,34 @@
 
-import { motion } from "framer-motion";
 
 const WhyChooseUs = () => {
   const features = [
-    {
-      id: 1,
-      title: "Community Impact",
-      description: "Directly contribute to reducing food waste and supporting those in need within your community.",
-      icon: "🌍",
-    },
-    {
-      id: 2,
-      title: "User-Friendly Platform",
-      description: "Our intuitive design makes it easy to share and request food with just a few clicks.",
-      icon: "👍",
-    },
-    {
-      id: 3,
-      title: "Secure & Reliable",
-      description: "We prioritize your security with robust authentication and data protection measures.",
-      icon: "🔒",
-    },
-    {
-      id: 4,
-      title: "Flexible Options",
-      description: "Choose from a wide range of food items and flexible pickup times that suit your needs.",
-      icon: "📦",
-    },
+    { question: "How does this food sharing work?", answer: "It's simple! Share what you don't need and grab what you want!" },
+    { question: "Is there a fee to join?", answer: "Nope! It's free to join the food revolution!" },
+    { question: "Can I share cooked meals?", answer: "Absolutely! Just make sure it's safe and delicious!" },
+    { question: "How do I find local sharers?", answer: "Use our nifty map feature to connect!" },
+    { question: "What if I have too much food?", answer: "Share it! Don’t let it go to waste!" },
   ];
 
   return (
-    <section className="py-12 bg-base-100">
-      <div className="px-6">
-        <h2 className="text-3xl font-bold text-center  mb-6">
-          Why Choose <span className="text-blue-500">MealBridge</span>?
-        </h2>
-        <p className="text-center  mb-10">
-          Empowering communities by connecting those with surplus food to those in need. Here&apos;s what makes us unique:
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature) => (
-            <motion.div
-              key={feature.id}
-              className="bg-base-300 p-6 rounded-lg shadow-lg text-center"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: feature.id * 0.2 }}
-            >
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-lg font-semibold  mb-2">{feature.title}</h3>
-              <p className="">{feature.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <section className="bg-[#FEF5E9] text-primary py-10">
+    <h2 className="text-2xl lg:text-4xl font-bold mb-6 text-center">
+      Curious Minds Ask!
+    </h2>
+    <div className="space-y-4 max-w-2xl mx-auto">
+      {features.map((faq, index) => (
+        <details
+          key={index}
+          className="bg-[#FFFFFF] p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+        >
+          <summary className="font-semibold text-xl lg:text-2xl cursor-pointer flex justify-between items-center">
+            {faq.question}
+            <span className="text-xl font-bold">+</span>
+          </summary>
+          <p className="mt-2">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
   );
 };
 

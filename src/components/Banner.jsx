@@ -29,7 +29,7 @@ const Banner = () => {
   ];
 
   return (
-    <div className="relative mb-10">
+    <div className="relative">
       <Swiper
         style={{
           "--swiper-pagination-color": "#90BE6D",

@@ -1,0 +1,76 @@
+#90BE6D---button bg
+#FFFFFF---button-text
+#232323---text-color
+#D2D3D4--navbar-bg
+#EBF1FC---body-bg
+#E3F3E6--section-bg
+#FEF5E9--another section-bg
+
+
+// import { motion } from "framer-motion";
+// import { useNavigate } from "react-router-dom";
+
+
+// const FoodCard = ({ food }) => {
+//   const {
+//     _id,
+//     food_name,
+//     food_image,
+//     quantity,
+//     location,
+//     additional_notes,
+//     expired_date,
+//     donator_name,
+//     donator_image,
+//     donator_email,
+//   } = food || {};
+//  const navigate = useNavigate()
+//   return (
+//     <motion.div
+//       className="w-[350px] bg-white shadow-lg rounded-lg p-4 border border-gray-200 hover:shadow-2xl"
+//       initial={{ opacity: 0, y: 50 }}
+//       animate={{ opacity: 1, y: 0 }}
+//       transition={{ duration: 0.5 }}
+//     >
+//       {/* Image Section */}
+//       <div className="relative flex justify-center items-center">
+//         <img
+//           src={food_image}
+//           alt={food_name}
+//           className="w-full h-[150px] object-cover rounded-lg shadow-lg border-4 border-primary-bg"
+//         />
+//       </div>
+
+//       {/* Food Details */}
+//       <div className="mt-4">
+//         <h3 className="text-lg font-bold text-gray-800">{food_name}</h3>
+//         <p className="text-sm text-gray-500">{location}</p>
+//         <p className="text-sm text-green-600 font-medium">Quantity: {quantity}</p>
+//         <p className="text-sm text-gray-400 mt-1">Expires on: {expired_date}</p>
+//         <p className="text-sm text-gray-500 mt-1 truncate">
+//           {additional_notes || "No additional notes provided"}
+//         </p>
+//       </div>
+
+//       {/* Donator Details */}
+//       <div className="flex items-center mt-4">
+//         <img
+//           src={donator_image}
+//           alt={donator_name}
+//           className="w-10 h-10 rounded-full border-2 border-[#00FFAB] object-cover"
+//         />
+//         <div className="ml-3">
+//           <p className="text-sm font-medium text-gray-800">{donator_name}</p>
+//           <p className="text-sm text-gray-400">{donator_email}</p>
+//         </div>
+//       </div>
+
+//       {/* Action Button */}
+//       <button onClick={()=>navigate(`/foods/${_id}`)} className="w-full bg-primary-bg text-white font-semibold py-2 mt-4 rounded-lg hover:bg-primary-bg/85 transition-all">
+//        View Details
+//       </button>
+//     </motion.div>
+//   );
+// };
+
+// export default FoodCard;
