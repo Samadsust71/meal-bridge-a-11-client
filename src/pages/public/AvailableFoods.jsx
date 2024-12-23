@@ -55,7 +55,7 @@ const AvailableFoods = () => {
               name="category"
               id="category"
               className="border p-4 rounded-md"
-              defaultValue={sort}
+              value={sort}
               onChange={(e) => setSort(e.target.value)}
             >
               <option value="">Sort By Expired Date</option>
