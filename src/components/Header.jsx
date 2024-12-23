@@ -5,10 +5,20 @@ import {  NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/meal-bridge-logo-rs.png"
 import userIcon from "../assets/userIcon.jpg"
 import useAuth from '../hooks/useAuth';
+import toast from "react-hot-toast";
 
 const Header = () => {
   const { signOutUser, user } = useAuth()
   const navigate = useNavigate();
+  const handleSignOut = ()=>{
+    signOutUser()
+    .then(()=>{
+      toast.success("Sign out successfullY!")
+    })
+    .catch((err)=>{
+      toast.error(err.message || "Something went wrong")
+    })
+  }
   const links = (
     <>
       <li>
@@ -114,7 +124,7 @@ const Header = () => {
 
             {user ? (
               <button
-                onClick={signOutUser}
+                onClick={handleSignOut}
                 className="bg-[#FFB347] px-4 py-2 rounded-lg shadow-xl text-white transition-all duration-300"
               >
                 Logout
