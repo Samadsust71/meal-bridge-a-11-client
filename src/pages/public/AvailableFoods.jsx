@@ -26,7 +26,7 @@ const AvailableFoods = () => {
   });
 
   if (isError) return <p className="text-center">No foods available.</p>;
-
+ 
   const handleReset = () => {
     setSearch("");
     setSort("");
@@ -76,7 +76,7 @@ const AvailableFoods = () => {
           <Loading />
         ) : (
           (
-            <div className={`grid grid-cols-2 lg:${layout?'grid-cols-3':"grid-cols-2"} gap-6`}>
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 lg:${ layout ?'grid-cols-3':"grid-cols-2"}`}>
               {foods.map((food) => (
                 <FoodCard key={food._id} food={food} />
               ))}
