@@ -5,6 +5,8 @@ import { CalculatorIcon, CalendarDaysIcon, Images, MapPin, NotebookPenIcon, Sala
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 const AddFood = () => {
@@ -12,16 +14,19 @@ const AddFood = () => {
  const [startDate, setStartDate] = useState(new Date());
  const axiosInstance = useAxiosSecure()
  const{user} = useAuth()
+ const navigate = useNavigate()
 
  const {isPending,mutateAsync}= useMutation({mutationFn: async(foodData)=>{
          await axiosInstance.post('/foods',foodData) 
  },
  onSuccess: ()=>{
-       console.log('data saved')
+      toast.success("Your food has been donated successfully! Thank you for your contribution.")
+      navigate('/manage-my-foods')
+
  },
 
  onError: ()=>{
-      console.log("something wrong")
+     toast.error("Food donation failed. Please try again or check your inputs.")
  }
 })
   
@@ -47,7 +52,7 @@ const handleSubmit = async(e) => {
 };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg mt-10">
+    <div className="max-w-4xl mx-auto p-6 bg-base-100 rounded-lg shadow-lg mt-10 my-10">
       <h2 className="text-3xl font-bold mb-6 text-center">Add Food</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Food Name */}
@@ -141,7 +146,7 @@ const handleSubmit = async(e) => {
 
         {/* Submit Button */}
         <div className="form-control mt-6">
-          <button type="submit" className="btn btn-primary">
+          <button disabled={isPending} type="submit" className="btn bg-primary-bg hover:bg-primary-bg/70 text-white">
             {isPending?'Adding...':'Add'}
           </button>
         </div>

@@ -15,8 +15,11 @@ import useAuth from "../hooks/useAuth";
 import { useRef, useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const RequestFormModal = ({ food }) => {
+  const navigate = useNavigate()
   const {
     _id,
     food_name,
@@ -39,13 +42,15 @@ expired_date
       await axiosInstance.patch(`/foods/${_id}`, foodData);
     },
     onSuccess: () => {
-      console.log("data saved");
+      toast.success("Food request submitted successfully!")
       dialogRef.current.close();
+      navigate('/my-food-request')
     
     },
 
     onError: () => {
-      console.log("something wrong");
+      dialogRef.current.close();
+      toast.error("Failed to submit food request. Please try again.");
     },
   });
 
@@ -62,10 +67,11 @@ expired_date
   return (
     <div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <dialog id={_id} className="modal modal-bottom sm:modal-middle" ref={dialogRef}>
+      <dialog id={_id} className="modal modal-middle" ref={dialogRef}>
         <div className="modal-box">
           <form  onSubmit={handleSubmit} className="space-y-4">
             {/* Food Name */}
+            <h1 className="text-xl font-bold text-center">Request Form</h1>
             <div className="form-control">
               <label className="label">
                 <span className="label-text flex items-center">
@@ -238,13 +244,13 @@ expired_date
                 name="additional_notes"
                 placeholder="Additional notes"
                 className="textarea textarea-bordered h-24"
-                defaultValue={additional_notes}
+                defaultValue={additional_notes || ""}
               />
             </div>
              {/* Submit Button */}
           <div className="form-control mt-6">
-          <button type="submit" className="btn btn-primary">
-            {isPending?'Adding...':'Add'}
+          <button disabled={isPending} type="submit" className="btn bg-primary-bg hover:bg-primary-bg/70 text-white">
+            {isPending?'Requesting...':'Request'}
           </button> 
           </div>
           </form>
