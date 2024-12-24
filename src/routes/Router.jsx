@@ -13,6 +13,7 @@ import ErrorPage from "../pages/error/ErrorPage";
 import SingleFoodDetails from "../pages/private/SingleFoodDetails";
 import UpdateFood from "../pages/private/UpdateFood";
 import Stories from "../pages/public/Stories";
+import StoryDetails from "../pages/public/StoryDetails";
 
 
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         {
             path:'/stories',
             element:<Stories/>
+        },
+        {
+            path:'/stories/:id',
+            element:<StoryDetails/>
         },
         {
             path:'/add-food',

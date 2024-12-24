@@ -127,7 +127,7 @@ const Header = () => {
                 className="h-10 w-10 rounded-full object-cover"
               />
             </div>
-            <div className="">
+            <div className="hidden lg:block">
               <h1 className="text-2xl font-bold text-[#232323]">MealBridge</h1>
             </div>
           </div>

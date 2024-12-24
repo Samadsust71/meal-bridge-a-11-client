@@ -1,66 +1,54 @@
-
-import { useNavigate } from 'react-router-dom';
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import NewsCard from "./NewsCard";
+import Loading from "./Loading";
 
 const CommunityStories = () => {
-  const navigate = useNavigate();
+  const axiosInstance = useAxiosSecure();
+  const {
+    data: stories,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["news-stories"],
+    queryFn: async () => {
+      const { data } = await axiosInstance.get(`/news-stories`);
+      return data;
+    },
+  });
 
-  const stories = [
-    {
-      id: 1,
-      title: 'A Kind Gesture Goes a Long Way',
-      description:
-        'John shared his extra groceries with a struggling family. He says it felt amazing to make a difference in someone’s life.',
-      image: 'https://st4.depositphotos.com/22578292/37852/i/450/depositphotos_378528604-stock-photo-food-deliver-asian-man-blue.jpg',
-    },
-    {
-      id: 2,
-      title: 'Turning Surplus into Smiles',
-      description:
-        'Sarah donated fresh produce she couldn’t finish. A local shelter used it to make a meal for 10 people.',
-      image: 'https://img.freepik.com/free-photo/person-getting-break-time-office_23-2149272018.jpg',
-    },
-    {
-      id: 3,
-      title: 'Gratitude in Every Bite',
-      description:
-        'Tom, a university student, received a home-cooked meal during a tough week and shared how much it meant to him.',
-      image: 'https://img.freepik.com/free-photo/people-taking-photos-food_23-2149303512.jpg',
-    },
-  ];
-
-  return (
-    <section className="bg-gray-50 py-10">
-      <div className="lg:p-10 text-primary">
-        <h2 className="text-2xl lg:text-4xl font-bold text-center mb-6">Community Stories</h2>
-        <p className="text-center mb-8 ">
-          Discover the real-life stories of people making a difference through MealBridge.
+  if (isError)
+    return (
+      <div className="flex justify-center items-center my-5">
+        <p className="text-center">
+          Unable to load news data. Please check your internet connection or try
+          reloading the page.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {stories.map((story) => (
-            <div
-              key={story.id}
-              className="bg-base-200 rounded-lg flex flex-col shadow-md overflow-hidden"
-            >
-              <img
-                src={story.image}
-                alt={story.title}
-                className="w-full h-72 object-cover"
-              />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2">{story.title}</h3>
-                <p className="text-sm mb-4">
-                  {story.description.slice(0, 100)}...
-                </p>
-                <button
-                  onClick={() => navigate('/stories')}
-                  className="bg-primary-bg text-white px-4 py-2 rounded hover:bg-primary-bg/70"
-                >
-                  Read More
-                </button>
-              </div>
+      </div>
+    );
+  return (
+    <section className="bg-gray-50 py-10 rounded-lg">
+      <div className="lg:p-10 text-primary">
+        <h2 className="text-2xl lg:text-4xl font-bold text-center mb-6">
+          Community Stories
+        </h2>
+        <p className="text-center mb-8 ">
+          Discover the real-life stories of people making a difference through
+          MealBridge.
+        </p>
+        {isLoading ? (
+          <Loading />
+        ) : stories && stories.length > 0 ? (
+          <div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {stories.map((story) => (
+                <NewsCard key={story._id} story={story} />
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <p className="text-center my-6">No News or story available.</p>
+        )}
       </div>
     </section>
   );

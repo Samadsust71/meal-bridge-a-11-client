@@ -21,7 +21,9 @@ const FeaturedFoods = () => {
         },
       });
     
-      if (isError) return <p className="text-center">No foods available.</p>;
+      if (isError) return <div className="flex justify-center items-center my-5">
+      <p className="text-center">Unable to load food data. Please check your internet connection or try reloading the page.</p>
+    </div>
   return (
     <div className="bg-gray-50 lg:p-10">
         <div className="text-center my-6">

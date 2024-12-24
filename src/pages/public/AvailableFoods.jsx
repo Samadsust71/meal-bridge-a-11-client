@@ -39,7 +39,7 @@ const AvailableFoods = () => {
         <div className="flex flex-col md:flex-row justify-center items-center gap-5">
           <div className="hidden lg:block">
             <button onClick={() => setLayout(!layout)} className="text-white/90 font-bold btn bg-primary-bg hover:bg-primary-bg/80">
-              Layout
+              {layout?"Layout: 3 Coloumn":"Layout: 2 Coloumn"}
             </button>
           </div>
           <div className="flex p-1 overflow-hidden border  border-primary-bg rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-primary-bg focus-within:ring-primary-bg/80">
@@ -52,7 +52,7 @@ const AvailableFoods = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+            <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-primary-bg rounded-md hover:bg-primary-bg/80 focus:bg-primary-bg/80 focus:outline-none">
             <FaSearch />
             </button>
           </div>
