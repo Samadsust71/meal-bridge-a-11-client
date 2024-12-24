@@ -5,6 +5,9 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import RequestFormModal from "../../components/RequestFormModal";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
+import { FaCalendar, FaLocationDot, FaPenToSquare} from "react-icons/fa6";
+import { MdEventAvailable } from "react-icons/md";
+
 
 const SingleFoodDetails = () => {
   const { id } = useParams();
@@ -28,68 +31,90 @@ const SingleFoodDetails = () => {
 
   return (
     <motion.div
-      className="w-full flex flex-col md:flex-row items-center gap-6 rounded-lg p-4 border border-gray-200 my-10"
+      className="w-full  items-center gap-6 rounded-lg p-6 my-6 bg-base-100"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      
       {/* Donator Details */}
-      <div className="flex flex-col space-y-4">
-        <h1 className="text-lg font-bold">Donator Details</h1>
-        <img
-          src={food?.donator_image}
-          alt={food?.donator_name}
-          className="w-full h-40 rounded-lg border-2 border-primary-bg object-cover"
-        />
-        <div className="ml-3">
-          <p className="text-sm font-medium text-gray-800">
-            Name : {food?.donator_name}
-          </p>
-          <p className="text-sm text-gray-400">Email : {food?.donator_email}</p>
-        </div>
-      </div>
-      {/* Image Section */}
-      <div className="relative flex justify-center items-center md:w-1/2">
-        <img
-          src={food?.food_image}
-          alt={food?.food_name}
-          className="h-[300px] object-cover rounded-lg shadow-lg border-4 border-primary-bg"
-        />
-        <div className="absolute h-[350px] rounded-lg bg-gradient-to-r from-primary-bg via-[#00FFAB] to-transparent blur-lg"></div>
+      <div className="overflow-x-auto">
+      <h1 className="text-2xl font-bold">Donor Details</h1>
+      <div className="divider"></div>
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  src={food?.donator_image}
+                  alt={food?.donator_name}
+                  className="w-10 h-10 rounded-full border-2 border-primary-bg object-cover"
+                />
+              </td>
+              <td> {food?.donator_name || "N/A"}</td>
+              <td>{food?.donator_email || "N/A"}</td>
+              <td>{food?.location.slice(0,50) ||"N/A"}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div className="divider"></div>
       </div>
 
-      <div className="space-y-4">
-        {/* Food Details */}
-        <div className="text-gray-500">
-          <p className="text-sm text-green-600 font-medium">
-            Quantity: {food?.quantity}
-          </p>
-          <h3 className="text-lg font-bold text-gray-800">
-            Food : {food?.food_name}
-          </h3>
-          <p className="text-sm">
-            Pickup Location : {food?.location}
-          </p>
-          <p className="text-sm ">Status : {food?.status}</p>
-          <p className="text-sm  mt-1">
-            Expires on : {format(new Date(food?.expired_date), "dd-MM-yyyy")}
-          </p>
-          <p className="text-sm mt-1 truncate">
-            Additional Notes:{" "}
-            {food?.additional_notes || "No additional notes provided"}
-          </p>
+      <h1 className="text-2xl font-bold mt-6">Food Details</h1>
+      <div className="divider"></div>
+      <div className="flex flex-col md:items-center md:flex-row gap-6">
+     
+        {/* Image Section */}
+        <div className="md:w-1/2">
+          <img
+            src={food?.food_image}
+            alt={food?.food_name}
+            className="h-[300px] w-full object-cover rounded-lg shadow-lg border-4 border-primary-bg"
+          />
         </div>
 
-        {/* Action Button */}
-        <div className="">
-          <button
-            onClick={() => document.getElementById(food?._id).showModal()}
-            className="btn bg-primary-bg text-white hover:bg-primary-bg/80 rounded-full"
-          >
-            Request
-          </button>
+        <div className="space-y-6 flex-grow">
+          {/* Food Details */}
+          <div className="text-gray-700 space-y-3">
+            <p className="text-sm text-green-600 font-medium">
+              Quantity: {food?.quantity}
+            </p>
+            <h3 className="text-lg font-bold text-primary">
+              Food : {food?.food_name}
+            </h3>
+            <p className="text-sm flex items-center"> <FaLocationDot className="text-green-400" />Pickup Location : {food?.location}</p>
+            <p className="text-sm flex items-center "> <MdEventAvailable className="text-primary-bg" /> Availablity : {food?.status}</p>
+            <p className="text-sm flex items-center">
+            <FaCalendar className="text-blue-300"/> Expires on : {format(new Date(food?.expired_date), "dd-MM-yyyy")}
+            </p>
+            <p className="text-sm flex items-center truncate">
+             <FaPenToSquare/> Additional Notes:{" "}
+              {food?.additional_notes || "No additional notes provided"}
+            </p>
+          </div>
+
+          {/* Action Button */}
+          <div className="">
+            <button
+              onClick={() => document.getElementById(food?._id).showModal()}
+              className="btn bg-primary-bg text-white hover:bg-primary-bg/80 rounded-full"
+            >
+              Request
+            </button>
+          </div>
         </div>
+        
       </div>
+      <div className="divider"></div>
       <RequestFormModal food={food} />
     </motion.div>
   );

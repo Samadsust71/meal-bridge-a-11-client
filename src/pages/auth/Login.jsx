@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
     const [showPass, setShowPass] = useState(false);
-    const{ signInUser} = useAuth()
+    const{ signInUser,setLoading,loading} = useAuth()
     const navigate =useNavigate()
   const location = useLocation()
   const {
@@ -27,10 +27,12 @@ const Login = () => {
         toast.success("Login Succesfull");
           navigate(`${location?.state || "/"}`);
           reset()
+          setLoading(false)
         
       })
       .catch(() => {
         toast.error('Invalid Email or Password');
+        setLoading(false)
       });
   };
   return (
@@ -41,7 +43,7 @@ const Login = () => {
           <h1 className="font-semibold text-center mb-2 text-PrimaryBlue">
             Welcome back!
           </h1>
-          <h2 className="text-3xl font-bold text-center mb-4">Member Login</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Login</h2>
 
           {/* Google Sign-in */}
           <SocialLogin title="in" />
@@ -98,9 +100,10 @@ const Login = () => {
             {/* Submit Button */}
             <button
               type="submit"
+              disabled={loading}
               className="w-full p-3 text-white bg-primary-bg rounded-lg "
             >
-              Login
+              {loading?"Login...":"Login"}
             </button>
           </form>
           <p className="text-center mt-6">

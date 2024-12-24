@@ -95,7 +95,7 @@ const Header = () => {
           }
           to={"/stories"}
         >
-          Stories
+          News & Stories
         </NavLink>
       </li>
     </>
@@ -155,7 +155,7 @@ const Header = () => {
             {user ? (
               <button
                 onClick={handleSignOut}
-                 className="bg-[#90BE6D] px-5 py-4 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
+                 className="bg-primary-bg hover:bg-primary-bg/80 px-5 py-4 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
               >
                 Logout
               </button>
@@ -163,13 +163,13 @@ const Header = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => navigate("/login")}
-                   className="bg-[#90BE6D] px-5 py-4 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
+                   className="bg-primary-bg hover:bg-primary-bg/80 px-5 py-4 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
                 >
                   Login
                 </button>
                 <button
                   onClick={() => navigate("/register")}
-                  className="bg-[#90BE6D] px-5 py-4 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
+                  className="bg-primary-bg hover:bg-primary-bg/80 px-5 py-4 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
                 >
                   Register
                 </button>

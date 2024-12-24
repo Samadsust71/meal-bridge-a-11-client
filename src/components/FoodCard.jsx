@@ -12,6 +12,8 @@ const FoodCard = ({ food }) => {
     expired_date,
     donator_name,
     donator_image,
+    status,
+    additional_notes
   } = food || {};
   const navigate = useNavigate();
   return (
@@ -29,7 +31,7 @@ const FoodCard = ({ food }) => {
           className="w-10 h-10 rounded-full border-2 border-gray-200 object-cover"
         />
         <div className="ml-3">
-        <p className="text-sm text-gray-400 mt-1">Expires on: {format(new Date(expired_date),"dd-MM-yyyy")}</p>
+        <p className="text-sm text-gray-600">Expires on: {format(new Date(expired_date),"dd-MM-yyyy")}</p>
         </div>
       </div>
       {/* Image Section */}
@@ -48,10 +50,15 @@ const FoodCard = ({ food }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: easeInOut }}
       >
-        <h3 className="text-lg font-bold text-gray-800">{food_name}</h3>
-        <p className="text-sm text-green-600 font-medium">
+        <div className="flex items-center justify-between flex-wrap">
+        <p className="text-sm text-primary-bg font-medium">
           Quantity: {quantity}
         </p>
+        
+        <div className="px-2 py-1 rounded-full border border-primary-bg text-primary-bg text-xs">{status}</div>
+        </div>
+        <h3 className="text-lg font-bold text-gray-800">{food_name}</h3>
+        <p>Additional Notes : {additional_notes.slice(0,70) || "Not Available"}...</p>
         
       </motion.div>
 

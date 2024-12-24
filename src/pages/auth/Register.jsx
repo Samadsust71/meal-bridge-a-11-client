@@ -17,7 +17,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate()
-  const {createUser,updateUser, setUser} = useAuth()
+  const {createUser,updateUser, setUser,loading, setLoading} = useAuth()
  
 
   // Handle form submission
@@ -32,9 +32,11 @@ const Register = () => {
         setUser(user);
         toast.success("Registration Succesfull!!!");
         navigate("/");
+        setLoading(false)
   })
     .catch(error=>{
         toast.error(error.message || "Something went wrong")
+        setLoading(false)
     })
     
   };
@@ -150,9 +152,10 @@ const Register = () => {
             {/* Submit Button */}
             <button
               type="submit"
+              disabled={loading}
               className="w-full p-3 text-white bg-primary-bg rounded-lg "
             >
-              Register
+              {loading?"Registering...":"Register"}
             </button>
           </form>
           <p className="text-center mt-6">

@@ -26,7 +26,7 @@ const SocialLogin = ({title='in'}) => {
 
   return (
     <div>
-      <button disabled={loading} onClick={handleGoogleSignIn} className="flex items-center justify-center w-full p-3 mb-4 border rounded-lg shadow-sm hover:shadow-md hover:text-PrimaryBlue gap-1">
+      <button disabled={loading} onClick={handleGoogleSignIn} className=" disabled:bg-gray-400 flex items-center justify-center w-full p-3 mb-4 border rounded-lg shadow-sm bg-primary-bg text-white hover:shadow-md hover:bg-primary-bg/80 gap-1">
         <FcGoogle />
         <span>Sign {title} with Google</span>
       </button>
