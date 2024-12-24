@@ -100,8 +100,8 @@ const Header = () => {
     </>
   );
   return (
-    <div className="w-11/12 mx-auto sticky top-2 right-0 z-50 h-28 mb-6">
-      <div className="navbar p-5 bg-gray-100 backdrop-blur-sm rounded-full">
+    <div className="bg-gray-100 backdrop-blur-sm sticky top-0 right-0 z-50 h-28 mb-6">
+      <div className=" w-11/12 mx-auto navbar p-5  rounded-full">
         <div className="navbar-start">
           <div className="dropdown">
             <div

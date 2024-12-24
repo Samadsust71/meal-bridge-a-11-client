@@ -23,8 +23,7 @@ const Login = () => {
   const onSubmit = (data) => {
     const { email, password } = data;
     signInUser(email, password)
-      .then((result) => {
-        const user = result.user;
+      .then(() => {
         toast.success("Login Succesfull");
           navigate(`${location?.state || "/"}`);
           reset()
@@ -99,14 +98,14 @@ const Login = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full p-3 text-white bg-green-400 rounded-lg "
+              className="w-full p-3 text-white bg-primary-bg rounded-lg "
             >
               Login
             </button>
           </form>
           <p className="text-center mt-6">
             Don&apos;t have an account?{" "}
-            <Link to={"/register"} className="text-PrimaryBlue">
+            <Link to={"/register"} className="text-primary-bg">
               Register
             </Link>{" "}
           </p>

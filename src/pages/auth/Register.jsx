@@ -28,10 +28,10 @@ const Register = () => {
     createUser(email,password)
     .then(result=>{
         const user = result?.user
+        updateUser(name,photo)
         setUser(user);
         toast.success("Registration Succesfull!!!");
         navigate("/");
-        updateUser(name,photo)
   })
     .catch(error=>{
         toast.error(error.message || "Something went wrong")
@@ -46,7 +46,7 @@ const Register = () => {
         <div className="lg:w-1/2 w-full">
           <h1 className="font-semibold text-center mb-2 text-PrimaryBlue">Register</h1>
           <h2 className="text-3xl font-bold text-center mb-4">
-            Start for free Today
+          Join MealBridge Today
           </h2>
          
 
@@ -150,14 +150,14 @@ const Register = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full p-3 text-white bg-green-300 rounded-lg "
+              className="w-full p-3 text-white bg-primary-bg rounded-lg "
             >
               Register
             </button>
           </form>
           <p className="text-center mt-6">
             Already have an account?{" "}
-            <Link to={"/login"} className="text-green-300">
+            <Link to={"/login"} className="text-primary-bg">
               Sign In
             </Link>{" "}
           </p>
