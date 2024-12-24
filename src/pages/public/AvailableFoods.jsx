@@ -33,7 +33,7 @@ const AvailableFoods = () => {
     setSort("");
   };
   return (
-    <div className="py-10 flex flex-col justify-between bg-gray-50">
+    <div className="py-10 flex flex-col justify-between bg-gray-50 my-10">
       <h1 className="text-center text-2xl lg:text-4xl font-bold mb-6 text-primary">All Available Foods</h1>
       <div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-5">
@@ -81,6 +81,7 @@ const AvailableFoods = () => {
         {isLoading ? (
           <Loading />
         ) : (
+          foods && foods.length >0 ?
           (
             <div
               className={`grid grid-cols-1 md:grid-cols-2 gap-6 lg:${
@@ -91,7 +92,7 @@ const AvailableFoods = () => {
                 <FoodCard key={food._id} food={food} />
               ))}
             </div>
-          ) || <p>No foods available.</p>
+          ) : <p className="text-center">No foods available.</p>
         )}
       </div>
     </div>

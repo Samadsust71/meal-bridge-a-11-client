@@ -1,6 +1,6 @@
 import { FaBars } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
-import logo from "../assets/meal-bridge-logo-rs.png";
+import logo from "../assets/meal-bridge-logo.png";
 import userIcon from "../assets/userIcon.jpg";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
@@ -43,18 +43,7 @@ const Header = () => {
           Available Foods
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? "text-[#232323] font-semibold underline underline-offset-2"
-              : "text-gray-800"
-          }
-          to={"/stories"}
-        >
-          Stories
-        </NavLink>
-      </li>
+      
       {user && (
         <li>
           <NavLink
@@ -97,11 +86,23 @@ const Header = () => {
           </NavLink>
         </li>
       )}
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#232323] font-semibold underline underline-offset-2"
+              : "text-gray-800"
+          }
+          to={"/stories"}
+        >
+          Stories
+        </NavLink>
+      </li>
     </>
   );
   return (
     <div className="bg-gray-100 backdrop-blur-sm sticky top-0 right-0 z-50 h-28 mb-6">
-      <div className=" w-11/12 mx-auto navbar p-5  rounded-full">
+      <div className=" w-11/12 mx-auto navbar py-5">
         <div className="navbar-start">
           <div className="dropdown">
             <div

@@ -15,6 +15,7 @@ const SocialLogin = ({title='in'}) => {
         signInWithGoogle()
         .then(() => {
           setLoading(false)
+          toast.success("Login Successfull !!!")
           navigate(`${location?.state || "/"}`);
         })
         .catch((err) => {

@@ -25,12 +25,13 @@ const FeaturedFoods = () => {
   return (
     <div className="bg-gray-50 lg:p-10">
         <div className="text-center my-6">
-           <h1 className="text-2xl lg:text-6xl font-bold text-primary">Featured Foods</h1>
+           <h1 className="text-2xl lg:text-4xl font-bold text-primary">Featured Foods</h1>
         </div>
 
         {isLoading ? (
           <Loading />
         ) : (
+          foods && foods.length >0?
           (
             <div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -42,7 +43,7 @@ const FeaturedFoods = () => {
             <Link to={`/available-foods`} className="w-fit px-4 bg-primary-bg text-white font-semibold py-2 mt-4 rounded-lg hover:bg-primary-bg/85 transition-all" >See All Foods</Link>
             </div>
            </div>
-          ) || <p>No foods available.</p>
+          ) : <p className="text-center my-6">No foods available.</p>
         )}
     </div>
   )

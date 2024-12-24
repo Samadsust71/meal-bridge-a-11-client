@@ -29,7 +29,7 @@ const CommunityStories = () => {
   ];
 
   return (
-    <section className="bg-[#E2F2E5] py-10">
+    <section className="bg-gray-50 py-10">
       <div className="lg:p-10 text-primary">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mb-6">Community Stories</h2>
         <p className="text-center mb-8 ">
@@ -39,7 +39,7 @@ const CommunityStories = () => {
           {stories.map((story) => (
             <div
               key={story.id}
-              className="bg-white rounded-lg flex flex-col shadow-md overflow-hidden"
+              className="bg-base-200 rounded-lg flex flex-col shadow-md overflow-hidden"
             >
               <img
                 src={story.image}

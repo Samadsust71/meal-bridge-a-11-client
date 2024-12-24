@@ -26,7 +26,7 @@ const FoodCard = ({ food }) => {
         <img
           src={donator_image}
           alt={donator_name}
-          className="w-10 h-10 rounded-full border-2 border-[#00FFAB] object-cover"
+          className="w-10 h-10 rounded-full border-2 border-gray-200 object-cover"
         />
         <div className="ml-3">
         <p className="text-sm text-gray-400 mt-1">Expires on: {format(new Date(expired_date),"dd-MM-yyyy")}</p>
