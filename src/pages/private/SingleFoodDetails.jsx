@@ -82,7 +82,7 @@ const SingleFoodDetails = () => {
           />
         </div>
 
-        <div className="space-y-6 flex-grow">
+        <div className="space-y-6 md:w-1/2">
           {/* Food Details */}
           <div className="text-gray-700 space-y-3">
             <p className="text-sm text-green-600 font-medium">
@@ -96,7 +96,7 @@ const SingleFoodDetails = () => {
             <p className="text-sm flex items-center">
             <FaCalendar className="text-blue-300"/> Expires on : {format(new Date(food?.expired_date), "dd-MM-yyyy")}
             </p>
-            <p className="text-sm flex items-center truncate">
+            <p className="text-sm flex items-center">
              <FaPenToSquare/> Additional Notes:{" "}
               {food?.additional_notes || "No additional notes provided"}
             </p>
