@@ -45,7 +45,7 @@ const SingleFoodDetails = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
+              <th>Image</th>
               <th>Name</th>
               <th>Email</th>
               <th>Location</th>

@@ -101,7 +101,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="bg-gray-100 backdrop-blur-sm sticky top-0 right-0 z-50 h-28 mb-2">
+    <div className="bg-[#DBDADA] backdrop-blur-sm sticky top-0 right-0 z-50 h-24 mb-2">
       <div className=" w-11/12 mx-auto navbar py-5">
         <div className="navbar-start">
           <div className="dropdown">

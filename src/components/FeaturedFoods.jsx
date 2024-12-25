@@ -21,11 +21,11 @@ const FeaturedFoods = () => {
         },
       });
     
-      if (isError) return <div className="flex justify-center items-center my-5">
+      if (isError) return <div className="flex justify-center items-center my-6">
       <p className="text-center">Unable to load food data. Please check your internet connection or try reloading the page.</p>
     </div>
   return (
-    <div className="bg-gray-50 lg:p-10">
+    <div className="bg-gray-50 py-6 lg:px-10">
         <div className="text-center my-6">
            <h1 className="text-2xl lg:text-4xl font-bold text-primary">Featured Foods</h1>
         </div>
@@ -42,7 +42,7 @@ const FeaturedFoods = () => {
               ))}
             </div>
             <div className="text-center my-6">
-            <Link to={`/available-foods`} className="w-fit px-4 bg-primary-bg text-white font-semibold py-2 mt-4 rounded-lg hover:bg-primary-bg/85 transition-all" >See All Foods</Link>
+            <Link to={`/available-foods`} className="w-fit px-4 bg-primary-bg text-white font-semibold py-2 mt-6 rounded-lg hover:bg-primary-bg/85 transition-all" >See All Foods</Link>
             </div>
            </div>
           ) : <p className="text-center my-6">No foods available.</p>

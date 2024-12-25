@@ -76,7 +76,7 @@ const AvailableFoods = () => {
         </div>
       </div>
 
-      <div className="text-primary p-10">
+      <div className="text-primary my-10 md:px-10">
         
         {isLoading ? (
           <Loading />
