@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import {
-  CalculatorIcon,
   CalendarDaysIcon,
   CreditCardIcon,
   ImagesIcon,
@@ -24,7 +23,6 @@ const RequestFormModal = ({ food }) => {
     _id,
     food_name,
     food_image,
-    quantity,
     location,
     additional_notes,
     donator_name,
@@ -125,7 +123,7 @@ expired_date
             <div className="form-control">
               <label className="label">
                 <span className="label-text flex items-center">
-                  <UserCheckIcon className="mr-2" /> Food Donor
+                  <UserCheckIcon className="mr-2" /> Food Donator
                 </span>
               </label>
               <input
@@ -141,7 +139,7 @@ expired_date
             <div className="form-control">
               <label className="label">
                 <span className="label-text flex items-center">
-                  <MailIcon className="mr-2" /> Donor Email
+                  <MailIcon className="mr-2" /> Donator Email
                 </span>
               </label>
               <input
@@ -169,23 +167,7 @@ expired_date
                 readOnly
               />
             </div>
-            {/*Food quantity */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text flex items-center">
-                  <CalculatorIcon className="mr-2" /> Quantity
-                </span>
-              </label>
-              <input
-                type="number"
-                name="quantity"
-                min={1}
-                placeholder="Enter food quantity"
-                className="input input-bordered"
-                defaultValue={quantity}
-                readOnly
-              />
-            </div>
+           
             {/* Pickup Location */}
             <div className="form-control">
               <label className="label">

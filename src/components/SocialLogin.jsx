@@ -2,21 +2,20 @@
 import { FcGoogle } from "react-icons/fc";
 
 import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 // eslint-disable-next-line react/prop-types
 const SocialLogin = ({title='in'}) => {
     const {signInWithGoogle,setLoading,loading} = useAuth()
     const navigate = useNavigate()
-    const location = useLocation()
 
     const handleGoogleSignIn = ()=>{
         signInWithGoogle()
         .then(() => {
           setLoading(false)
           toast.success("Login Successfull !!!")
-          navigate(`${location?.state || "/"}`);
+          navigate( "/");
         })
         .catch((err) => {
           setLoading(false)

@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin";
 import { useForm } from "react-hook-form";
 
@@ -13,7 +13,7 @@ const Login = () => {
     const [showPass, setShowPass] = useState(false);
     const{ signInUser,setLoading,loading} = useAuth()
     const navigate =useNavigate()
-  const location = useLocation()
+ 
   const {
     register,
     handleSubmit,
@@ -25,7 +25,7 @@ const Login = () => {
     signInUser(email, password)
       .then(() => {
         toast.success("Login Succesfull");
-          navigate(`${location?.state || "/"}`);
+          navigate("/");
           reset()
           setLoading(false)
         
@@ -81,7 +81,7 @@ const Login = () => {
                 className={`w-full p-3 border rounded-lg ${
                   errors.password ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="******"
+                placeholder="Enter your password"
               />
               <button
                 type="button"

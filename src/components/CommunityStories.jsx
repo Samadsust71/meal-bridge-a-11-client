@@ -30,7 +30,7 @@ const CommunityStories = () => {
     <section className="bg-gray-50 py-10 rounded-lg">
       <div className="lg:p-10 text-primary">
         <h2 className="text-2xl lg:text-4xl font-bold text-center mb-6">
-          Community Stories
+          Community News and Stories
         </h2>
         <p className="text-center mb-8 ">
           Discover the real-life stories of people making a difference through

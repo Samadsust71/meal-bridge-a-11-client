@@ -1,7 +1,10 @@
 import {
   CalculatorIcon,
   CalendarDaysIcon,
+  FolderPenIcon,
+  Image,
   Images,
+  MailCheckIcon,
   MapPin,
   NotebookPenIcon,
   SaladIcon,
@@ -69,6 +72,63 @@ const UpdateFood = () => {
     <div className="max-w-4xl mx-auto p-6 bg-base-100 rounded-lg shadow-lg mt-10 my-10">
       <h2 className="text-3xl font-bold mb-6 text-center">Update Food</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
+
+          {/* donator Name */}
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text flex items-center">
+              <FolderPenIcon className="mr-2" /> Donator Name
+            </span>
+          </label>
+
+          <input
+            type="text"
+            name="donator_name"
+            placeholder="Enter donor name"
+            className="input input-bordered"
+            value={user?.displayName}
+            readOnly
+            required
+          />
+        </div>
+        {/* donator email */}
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text flex items-center">
+              <MailCheckIcon className="mr-2" /> Donator Email
+            </span>
+          </label>
+
+          <input
+            type="email"
+            name="donator_email"
+            placeholder="Enter donator email"
+            className="input input-bordered"
+            value={user?.email}
+            readOnly
+            required
+          />
+        </div>
+
+        {/* donator image */}
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text flex items-center">
+              <Image className="mr-2" /> Donator Image
+            </span>
+          </label>
+
+          <input
+            type="text"
+            name="donator_image"
+            placeholder="Enter food name"
+            className="input input-bordered"
+            value={user?.photoURL}
+            readOnly
+            required
+          />
+        </div>
+
         {/* Food Name */}
         <div className="form-control">
           <label className="label">

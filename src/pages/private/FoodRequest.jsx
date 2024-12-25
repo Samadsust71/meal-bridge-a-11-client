@@ -40,8 +40,9 @@ const FoodRequest = () => {
             <thead>
               <tr>
                 <th>Serial</th>
+                <th>Food Name</th>
+                <th>Food Quantity</th>
                 <th>Donor Name</th>
-                <th>Donor Email</th>
                 <th>Pickup Location</th>
                 <th>Request Date</th>
                 <th>Expire date</th>
@@ -51,8 +52,9 @@ const FoodRequest = () => {
               {myRequestedFoods.map((food, idx) => (
                 <tr key={food?._id}>
                   <th>{idx + 1}</th>
+                  <td>{food?.food_name.slice(0,50)}</td>
+                  <td>{food?.quantity}</td>
                   <td>{food?.donator_name}</td>
-                  <td>{food?.donator_email}</td>
                   <td>{food?.location.slice(0,50)}</td>
                   <td>{format(new Date(food?.requested_time),"dd-MM-yyyy")}</td>
                   <td>{format(new Date(food?.expired_date),"dd-MM-yyyy")}</td>
@@ -62,7 +64,7 @@ const FoodRequest = () => {
           </table>
         ) : (
           <div className="flex justify-center items-center my-5">
-            <p className="text-center">No requested food here</p>
+            <p className="text-center">No request has been made.</p>
           </div>
         )}
       </div>

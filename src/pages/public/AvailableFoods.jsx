@@ -37,7 +37,7 @@ const AvailableFoods = () => {
       <h1 className="text-center text-2xl lg:text-4xl font-bold mb-6 text-primary">All Available Foods</h1>
       <div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-5">
-          <div className="hidden lg:block">
+          <div className="">
             <button onClick={() => setLayout(!layout)} className="text-white/90 font-bold btn bg-primary-bg hover:bg-primary-bg/80">
               {layout?"Layout: 3 Coloumn":"Layout: 2 Coloumn"}
             </button>
