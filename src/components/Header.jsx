@@ -23,7 +23,7 @@ const Header = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "text-[#232323] font-semibold underline underline-offset-2"
+              ? "text-primary font-semibold underline underline-offset-2"
               : "text-gray-800"
           }
           to={"/"}
@@ -35,7 +35,7 @@ const Header = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "text-[#232323] font-semibold underline underline-offset-2"
+              ? "text-primary font-semibold underline underline-offset-2"
               : "text-gray-800"
           }
           to={"/available-foods"}
@@ -49,7 +49,7 @@ const Header = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                 ? "text-[#232323] font-semibold underline underline-offset-2"
+                 ? "text-primary font-semibold underline underline-offset-2"
               : "text-gray-800"
             }
             to={"/add-food"}
@@ -63,7 +63,7 @@ const Header = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                 ? "text-[#232323] font-semibold underline underline-offset-2"
+                 ? "text-primary font-semibold underline underline-offset-2"
               : "text-gray-800"
             }
             to={"/manage-my-foods"}
@@ -77,7 +77,7 @@ const Header = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "text-[#232323] font-semibold underline underline-offset-2"
+                ? "text-primary font-semibold underline underline-offset-2"
               : "text-gray-800"
             }
             to={"/my-food-request"}
@@ -90,7 +90,7 @@ const Header = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "text-[#232323] font-semibold underline underline-offset-2"
+              ? "text-primary font-semibold underline underline-offset-2"
               : "text-gray-800"
           }
           to={"/stories"}
@@ -128,7 +128,7 @@ const Header = () => {
               />
             </div>
             <div className="hidden lg:block">
-              <h1 className="text-2xl font-bold text-[#232323]">MealBridge</h1>
+              <h1 className="text-2xl font-bold text-primary">MealBridge</h1>
             </div>
           </div>
         </div>
@@ -145,7 +145,7 @@ const Header = () => {
                     className="h-10 w-10 rounded-full object-cover"
                     alt="user"
                   />
-                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 translate-y-12 bg-white text-gray-800 text-sm py-1 pl-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none w-[100px] z-20">
+                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 translate-y-12 bg-white text-primary text-sm py-1 pl-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none w-[100px] z-20">
                     {user?.displayName}
                   </div>
                 </div>
