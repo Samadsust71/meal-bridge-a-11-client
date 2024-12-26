@@ -5,12 +5,15 @@ import { useQuery } from "@tanstack/react-query";
 import { FaSearch } from "react-icons/fa"
 
 import Loading from "../../components/Loading";
+import { useMediaQuery } from "react-responsive";
 
 const AvailableFoods = () => {
   const axiosInstance = useAxiosSecure();
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [layout, setLayout] = useState(true);
+  const isLargeScreen = useMediaQuery({ query: "(min-width: 1024px)" });
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 640px)" });
 
   const {
     data: foods,
@@ -32,6 +35,12 @@ const AvailableFoods = () => {
     setSearch("");
     setSort("");
   };
+
+  const getButtonText = () => {
+    if (isSmallScreen) return "Layout";
+    if (layout) return isLargeScreen ? "Layout: 3 Column" : "Layout: 2 Column";
+    return isLargeScreen ? "Layout: 2 Column" : "Layout: 1 Column";
+  };
   return (
     <div className="py-10 flex flex-col justify-between bg-gray-50 my-6 rounded-lg">
       <h1 className="text-center text-2xl lg:text-4xl font-bold mb-6 text-primary">All Available Foods</h1>
@@ -39,7 +48,7 @@ const AvailableFoods = () => {
         <div className="flex flex-col md:flex-row justify-center items-center gap-5">
           <div className="">
             <button onClick={() => setLayout(!layout)} className="text-white/90 font-bold btn bg-primary-bg hover:bg-primary-bg/80">
-              {layout?"Layout: 3 Coloumn":"Layout: 2 Coloumn"}
+            {getButtonText()}
             </button>
           </div>
           <div className="flex p-1 overflow-hidden border  border-primary-bg rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-primary-bg focus-within:ring-primary-bg/80">
@@ -84,7 +93,7 @@ const AvailableFoods = () => {
           foods && foods.length >0 ?
           (
             <div
-              className={`grid grid-cols-1 md:grid-cols-2 gap-6 lg:${
+              className={`grid grid-cols-1 md:${layout?"grid-cols-2":"grid-cols-1"} gap-6 lg:${
                 layout ? "grid-cols-3" : "grid-cols-2"
               }`}
             >

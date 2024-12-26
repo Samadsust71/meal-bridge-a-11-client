@@ -91,14 +91,21 @@ const SingleFoodDetails = () => {
             <h3 className="text-lg font-bold text-primary">
               Food : {food?.food_name}
             </h3>
-            <p className="text-sm flex items-center"> <FaLocationDot className="text-green-400" />Pickup Location : {food?.location}</p>
-            <p className="text-sm flex items-center "> <MdEventAvailable className="text-primary-bg" /> Availablity : {food?.status}</p>
-            <p className="text-sm flex items-center">
-            <FaCalendar className="text-blue-300"/> Expires on : {format(new Date(food?.expired_date), "dd-MM-yyyy")}
+            <p className="text-sm flex gap-1"> <span><FaLocationDot className="text-green-400" /></span> <span>
+            Pickup Location : {food?.location}</span> </p>
+            <p className="text-sm flex gap-1"> <span>
+            <MdEventAvailable className="text-primary-bg" /></span> <span>
+            Availablity : {food?.status}</span> </p>
+            <p className="text-sm flex gap-1">
+            <span><FaCalendar className="text-blue-300"/></span> <span>
+            Expires on : {format(new Date(food?.expired_date), "dd-MM-yyyy")}
+            </span>
             </p>
-            <p className="text-sm flex items-center">
-             <FaPenToSquare/> Additional Notes:{" "}
-              {food?.additional_notes || "No additional notes provided"}
+            <p className="text-sm flex gap-1">
+             <span><FaPenToSquare/></span> <span>
+             Additional Notes:
+             {food?.additional_notes || "No additional notes provided"}
+             </span>
             </p>
           </div>
 

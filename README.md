@@ -46,6 +46,7 @@ The project utilizes the following npm packages:
 - **react-hot-toast**: Elegant toast notifications.
 - **react-icons**: Popular icons for React projects.
 - **react-router-dom**: Declarative routing and navigation.
+- **react-responsive**: Allows dynamic adjustments based on screen size.
 - **sort-by**: Helper for sorting arrays by property.
 - **sweetalert2**: Beautiful and customizable alerts.
 - **swiper**: Responsive sliders and carousels.
