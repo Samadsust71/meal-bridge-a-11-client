@@ -21,7 +21,7 @@ const StoryDetails = () => {
   if (isLoading) return <Loading />;
   if (isError)
     return (
-      <div className="flex justify-center items-center my-5">
+      <div className="flex justify-center items-center my-6">
         <p className="text-center">
           Unable to load news data. Please check your internet connection or try
           reloading the page.
@@ -29,7 +29,7 @@ const StoryDetails = () => {
       </div>
     );
   return (
-    <div className="flex flex-col p-6  w-full my-6 rounded-lg space-y-6">
+    <div className="flex flex-col w-11/12 mx-auto my-12 rounded-lg space-y-6">
       <h2 className="text-2xl lg:text-4xl font-bold">{story?.title || ""}</h2>
       <div className="divider"></div>
       <figure className="">
