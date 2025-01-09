@@ -5,16 +5,26 @@ const ReviewForm = () => {
   return (
     <div className="flex flex-col items-center justify-center">
       <form
-        className="bg-white p-8 rounded-lg shadow-lg space-y-4 w-full max-w-md"
+        className="bg-white p-8 rounded-lg shadow-lg space-y-4 w-full max-w-lg"
         onSubmit={(e) => e.preventDefault()}
       >
-        {/* Name Input */}
+
+        <div className="grid grid-cols-2 gap-2">
+          {/* Name Input */}
         <input
           type="text"
           placeholder="Name"
           
           className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
         />
+        {/* role Input */}
+        <input
+          type="text"
+          placeholder="Role (e.g Donor)"
+          className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
+        />
+        
+        </div>
         {/* Email Input */}
         <input
           type="email"
@@ -31,12 +41,7 @@ const ReviewForm = () => {
           
           className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
         />
-        {/* role Input */}
-        <input
-          type="text"
-          placeholder="Role (e.g Donor)"
-          className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
-        />
+        
         {/* Message Input */}
         <textarea
           placeholder="Message"
