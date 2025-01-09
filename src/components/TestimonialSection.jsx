@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ReviewForm from "./ReviewForm";
 
 const testimonials = [
   {
@@ -30,7 +31,7 @@ const testimonials = [
 
 const TestimonialSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  
   // Automatically cycle through testimonials
   useEffect(() => {
     const interval = setInterval(() => {
@@ -45,51 +46,8 @@ const TestimonialSection = () => {
         <h2 className="text-2xl lg:text-4xl font-bold text-center  mb-10">What People Are Saying!!!</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* right content */}
-          <div className="flex flex-col items-center justify-center">
-            <form
-              className="bg-white p-8 rounded-lg shadow-lg space-y-4 w-full max-w-md"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <div className="grid grid-cols-2 gap-4">
-                {/* Name Input */}
-                <input
-                  type="text"
-                  placeholder="Name"
-                  className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
-                />
-                {/* Email Input */}
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
-                />
-              </div>
-              {/* Photo Input */}
-              <input
-                type="url"
-                placeholder="Photo(URL)"
-                className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
-              />
-              {/* role Input */}
-              <input
-                type="text"
-                placeholder="Role (e.g Donor)"
-                className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
-              />
-              {/* Message Input */}
-              <textarea
-                placeholder="Message"
-                rows="4"
-                className="w-full p-3 max-h-40 min-h-40 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-bg"
-              ></textarea>
-              {/* Submit Button */}
-              <button
-                type="submit"
-                className="w-full p-3 bg-primary-bg text-white font-semibold rounded-full hover:bg-primary-bg/95 transition duration-200"
-              >
-                Send It!
-              </button>
-            </form>
+          <div>
+            <ReviewForm/>
           </div>
           {/* left content */}
           <div className="relative  flex justify-center items-center text-primary">
