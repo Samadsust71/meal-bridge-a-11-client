@@ -46,7 +46,7 @@ const Banner = () => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}
-        className="rounded-lg"
+        className=""
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className="relative ">
@@ -58,8 +58,8 @@ const Banner = () => {
             <div className="absolute inset-0 bg-black bg-opacity-50"></div> 
             <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white space-y-8">
               <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-center">{slide.title}</h2>
-              <p className="mt-2 lg:text-xl text-center">{slide.subtitle}</p>
-              <Link to={'/add-food'} className="px-6 py-3 bg-transparent text-white font-semibold hover:bg-[#90BE6D] border border-white transition-all duration-100 ease-in-out rounded-full">
+              <p className="mt-2 lg:text-xl text-center text-white/90">{slide.subtitle}</p>
+              <Link to={'/add-food'} className="px-6 py-3 bg-transparent text-white font-semibold hover:bg-[#90BE6D] border border-white hover:border-[#90BE6D] transition-all duration-100 ease-in-out rounded-full">
                 JOIN NOW
               </Link>
             </div>

@@ -30,8 +30,9 @@ const SingleFoodDetails = () => {
   if (isError) return <p className="text-center">Food details not available</p>;
 
   return (
-    <motion.div
-      className="w-full  items-center gap-6 rounded-lg p-6 my-6 bg-base-100"
+    <div className="w-11/12 mx-auto my-10">
+      <motion.div
+      className="w-full items-center gap-6 rounded-lg p-6 my-6 bg-base-100"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -69,7 +70,7 @@ const SingleFoodDetails = () => {
         <div className="divider"></div>
       </div>
 
-      <h1 className="text-2xl font-bold mt-6">Food Details</h1>
+      <h1 className="text-2xl font-bold">Food Details</h1>
       <div className="divider"></div>
       <div className="flex flex-col md:items-center md:flex-row gap-6">
      
@@ -113,7 +114,7 @@ const SingleFoodDetails = () => {
           <div className="">
             <button
               onClick={() => document.getElementById(food?._id).showModal()}
-              className="btn bg-primary-bg text-white hover:bg-primary-bg/80 rounded-full"
+              className="px-5 py-3 bg-primary-bg text-white hover:bg-primary-bg/80 rounded-full"
             >
               Request
             </button>
@@ -124,6 +125,7 @@ const SingleFoodDetails = () => {
       <div className="divider"></div>
       <RequestFormModal food={food} />
     </motion.div>
+    </div>
   );
 };
 

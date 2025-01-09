@@ -101,8 +101,8 @@ const Header = () => {
     </>
   );
   return (
-    <div className="bg-[#DBDADA] backdrop-blur-sm sticky top-0 right-0 z-50 h-24 mb-2">
-      <div className=" w-11/12 mx-auto navbar py-5">
+    <div className="bg-[#DBDADA] backdrop-blur-sm sticky top-0 right-0 z-50 h-24">
+      <div className=" w-11/12 mx-auto navbar py-5 p-0">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -155,7 +155,7 @@ const Header = () => {
             {user ? (
               <button
                 onClick={handleSignOut}
-                 className="bg-primary-bg hover:bg-primary-bg/80 px-5 py-4 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
+                 className="bg-primary-bg hover:bg-primary-bg/80 px-5 py-3 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
               >
                 Logout
               </button>
@@ -163,13 +163,13 @@ const Header = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => navigate("/login")}
-                   className="bg-primary-bg hover:bg-primary-bg/80 px-5 py-4 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
+                   className="bg-primary-bg hover:bg-primary-bg/80 px-5 py-3 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
                 >
                   Login
                 </button>
                 <button
                   onClick={() => navigate("/register")}
-                  className="bg-primary-bg hover:bg-primary-bg/80 px-5 py-4 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
+                  className="bg-primary-bg hover:bg-primary-bg/80 px-5 py-3 rounded-full shadow-xl text-white transition-all duration-300 font-bold"
                 >
                   Register
                 </button>

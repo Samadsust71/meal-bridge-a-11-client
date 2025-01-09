@@ -41,7 +41,7 @@ const TestimonialSection = () => {
 
   return (
     <section className="py-12 bg-[#FEF5E9]">
-      <div>
+      <div className="w-11/12 mx-auto">
         <h2 className="text-2xl lg:text-4xl font-bold text-center  mb-10">What People Are Saying!!!</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* right content */}
@@ -64,7 +64,13 @@ const TestimonialSection = () => {
                   className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
                 />
               </div>
-              {/* Phone Input */}
+              {/* Photo Input */}
+              <input
+                type="url"
+                placeholder="Photo(URL)"
+                className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
+              />
+              {/* role Input */}
               <input
                 type="text"
                 placeholder="Role (e.g Donor)"
@@ -93,9 +99,9 @@ const TestimonialSection = () => {
                   index === currentIndex && (
                     <motion.div
                       key={testimonial.id}
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -50 }}
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -50 }}
                       transition={{ duration: 0.8 }}
                       className="p-6 max-w-md rounded-lg shadow-md bg-white"
                     >

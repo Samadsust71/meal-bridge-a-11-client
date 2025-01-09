@@ -30,7 +30,7 @@ const FoodRequest = () => {
     );
 
   return (
-    <div className="p-6 bg-base-100 rounded-lg shadow-lg my-10">
+    <div className="p-6 bg-base-100 rounded-lg shadow-lg my-10 w-11/12 mx-auto">
       <h2 className="text-3xl font-semibold text-center mb-6">Requested Foods</h2>
       <div className="divider"></div>
       <div className="overflow-x-auto">

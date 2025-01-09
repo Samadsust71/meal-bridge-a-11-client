@@ -42,7 +42,7 @@ const AvailableFoods = () => {
     return isLargeScreen ? "Layout: 2 Column" : "Layout: 1 Column";
   };
   return (
-    <div className="py-10 flex flex-col justify-between bg-gray-50 my-6 rounded-lg">
+    <div className="py-10 flex flex-col justify-between bg-gray-50 rounded-lg">
       <h1 className="text-center text-2xl lg:text-4xl font-bold mb-6 text-primary">All Available Foods</h1>
       <div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-5">
@@ -85,7 +85,7 @@ const AvailableFoods = () => {
         </div>
       </div>
 
-      <div className="text-primary my-10 md:px-10">
+      <div className="text-primary mt-10 w-11/12 mx-auto">
         
         {isLoading ? (
           <Loading />
