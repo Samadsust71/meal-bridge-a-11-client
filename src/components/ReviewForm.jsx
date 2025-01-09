@@ -1,7 +1,7 @@
-import useAuth from "../hooks/useAuth";
+
 
 const ReviewForm = () => {
-    const {user}= useAuth()
+    
   return (
     <div className="flex flex-col items-center justify-center">
       <form
@@ -12,15 +12,15 @@ const ReviewForm = () => {
         <input
           type="text"
           placeholder="Name"
-          defaultValue={user ? user?.displayName : ""}
+          
           className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
         />
         {/* Email Input */}
         <input
           type="email"
-          defaultValue={user ? user?.email : ""}
+          
           placeholder="Email"
-          readOnly={user}
+          
           className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
         />
 
@@ -28,7 +28,7 @@ const ReviewForm = () => {
         <input
           type="url"
           placeholder="Photo(URL)"
-          defaultValue={user ? user?.photoURL : ""}
+          
           className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
         />
         {/* role Input */}
