@@ -1,8 +1,8 @@
 # 🍽️ Meal Bridge 
 
-![Swift Cash Preview](https://i.ibb.co.com/JFMtRqxc/Screenshot-61.png)
+![Meal Bridge Preview](https://i.ibb.co.com/JFMtRqxc/Screenshot-61.png)
 
-## 🔗 **Live Demo:** [Visit Swift Cash](https://meal-bridge.web.app)
+## 🔗 **Live Demo:** [Visit Meal Bridge](https://meal-bridge.web.app)
 
 ## Introduction
 
