@@ -160,7 +160,7 @@ Replace values with your actual API keys and Firebase configurations.
 
 ## 🤝 Contributors
 
-We welcome contributions to improve this Food Sharing Website!  
+I welcome contributions to improve this Food Sharing Website!  
 Please fork the repository and submit a pull request with your changes.
 
 ---
