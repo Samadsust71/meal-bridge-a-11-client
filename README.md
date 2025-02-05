@@ -1,6 +1,6 @@
 # 🍽️ Meal Bridge 
 
-![Meal Bridge Preview](https://i.ibb.co.com/JFMtRqxc/Screenshot-61.png)
+![Meal Bridge Preview](https://i.ibb.co.com/TMmH9QMH/Screenshot-62.png)
 
 ## 🔗 **Live Demo:** [Visit Meal Bridge](https://meal-bridge.web.app)
 
