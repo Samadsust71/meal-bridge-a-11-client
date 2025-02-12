@@ -18,13 +18,13 @@ Additionally, users can **request available food** and **manage requested items*
 
 ## 📌 Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Dependencies](#dependencies)
-- [Configuration](#configuration)
-- [Future Enhancements](#future-enhancements)
-- [Contributors](#contributors)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Features](#-features)
+- [Dependencies](#-dependencies)
+- [Configuration](#-configuration)
+- [Future Enhancements](#-future-enhancements)
+- [Contributors](#-contributors)
 
 
 ---
