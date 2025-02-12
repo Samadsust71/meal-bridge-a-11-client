@@ -26,8 +26,8 @@ const ReviewForm = () => {
     const photo = form.photo.value
     const message = form.message.value
     const reviewData = {name, role, email, photo, message}
-    console.log(reviewData)
     await mutateAsync(reviewData)
+    form.reset()
   }
     
   return (
@@ -86,7 +86,7 @@ const ReviewForm = () => {
         <button
           type="submit"
           disabled={isPending}
-          className="disabled:cursor-default w-full p-3 bg-primary-bg text-white font-semibold rounded-full hover:bg-primary-bg/95 transition duration-200"
+          className="disabled:cursor-not-allowed  w-full p-3 bg-primary-bg text-white font-semibold rounded-full hover:bg-primary-bg/95 transition duration-200"
         >
           {isPending ? "Sending..." : "Send It!"}
         </button>
