@@ -1,12 +1,40 @@
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 
 const ReviewForm = () => {
+
+  const {isPending, mutateAsync} = useMutation({
+    mutationFn: async(reviewData)=>{
+      await axios.post('https://meal-bridge-server.vercel.app/user-reviews',reviewData)
+    },
+    onSuccess: ()=>{
+      toast.success("Thank you for your review, Bridge the Gap, Share the Meal.")
+    },
+    onError: (err)=>{
+      toast.error("Something went wrong please try again")
+      console.log(err.message)
+    }
+  })
+  const handleSubmit = async(e) =>{
+    e.preventDefault()
+    const form = e.target
+    const name = form.name.value
+    const role = form.role.value
+    const email = form.email.value
+    const photo = form.photo.value
+    const message = form.message.value
+    const reviewData = {name, role, email, photo, message}
+    console.log(reviewData)
+    await mutateAsync(reviewData)
+  }
     
   return (
     <div className="flex flex-col items-center justify-center">
       <form
         className="bg-white p-8 rounded-lg shadow-lg space-y-4 w-full max-w-lg"
-        onSubmit={(e) => e.preventDefault()}
+        onSubmit={handleSubmit}
       >
 
         <div className="grid grid-cols-2 gap-2">
@@ -14,12 +42,15 @@ const ReviewForm = () => {
         <input
           type="text"
           placeholder="Name"
-          
+          name="name"
+          required
           className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
         />
         {/* role Input */}
         <input
           type="text"
+          name="role"
+          required
           placeholder="Role (e.g Donor)"
           className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
         />
@@ -28,32 +59,36 @@ const ReviewForm = () => {
         {/* Email Input */}
         <input
           type="email"
-          
+          name="email"
           placeholder="Email"
-          
+          required
           className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
         />
 
         {/* Photo Input */}
         <input
           type="url"
+          name="photo"
           placeholder="Photo(URL)"
-          
+          required
           className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
         />
         
         {/* Message Input */}
         <textarea
           placeholder="Message"
+          name="message"
           rows="4"
+          required
           className="w-full p-3 max-h-40 min-h-40 border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-bg"
         ></textarea>
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full p-3 bg-primary-bg text-white font-semibold rounded-full hover:bg-primary-bg/95 transition duration-200"
+          disabled={isPending}
+          className="disabled:cursor-default w-full p-3 bg-primary-bg text-white font-semibold rounded-full hover:bg-primary-bg/95 transition duration-200"
         >
-          Send It!
+          {isPending ? "Sending..." : "Send It!"}
         </button>
       </form>
     </div>
