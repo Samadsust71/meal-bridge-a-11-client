@@ -5,7 +5,7 @@ import Header from "../components/Header";
 const RootLayout = () => {
   return (
     
-      <div className="bg-[#EBF1FC]">
+      <div className="bg-gray-50">
         <Header/>
         <div className="min-h-[calc(100vh-428px)]">
           <Outlet/>
