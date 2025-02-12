@@ -2,59 +2,67 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-
 const ReviewForm = () => {
+  const { isPending, mutateAsync } = useMutation({
+    mutationFn: async (reviewData) => {
+      await axios.post(
+        "https://meal-bridge-server.vercel.app/user-reviews",
+        reviewData
+      );
+    },
+    onSuccess: () => {
+      toast.success(
+        "Thank you for your review, Bridge the Gap, Share the Meal."
+      );
+    },
+    onError: (err) => {
+      toast.error("Something went wrong please try again");
+      console.log(err.message);
+    },
+  });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const role = form.role.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const message = form.message.value;
+    const reviewData = { name, role, email, photo, message };
+    await mutateAsync(reviewData);
+    console.log(role)
+    form.reset();
+  };
 
-  const {isPending, mutateAsync} = useMutation({
-    mutationFn: async(reviewData)=>{
-      await axios.post('https://meal-bridge-server.vercel.app/user-reviews',reviewData)
-    },
-    onSuccess: ()=>{
-      toast.success("Thank you for your review, Bridge the Gap, Share the Meal.")
-    },
-    onError: (err)=>{
-      toast.error("Something went wrong please try again")
-      console.log(err.message)
-    }
-  })
-  const handleSubmit = async(e) =>{
-    e.preventDefault()
-    const form = e.target
-    const name = form.name.value
-    const role = form.role.value
-    const email = form.email.value
-    const photo = form.photo.value
-    const message = form.message.value
-    const reviewData = {name, role, email, photo, message}
-    await mutateAsync(reviewData)
-    form.reset()
-  }
-    
   return (
     <div className="flex flex-col items-center justify-center">
       <form
         className="bg-white p-8 rounded-lg shadow-lg space-y-4 w-full max-w-lg"
         onSubmit={handleSubmit}
       >
-
         <div className="grid grid-cols-2 gap-2">
           {/* Name Input */}
-        <input
-          type="text"
-          placeholder="Name"
-          name="name"
-          required
-          className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
-        />
-        {/* role Input */}
-        <input
-          type="text"
-          name="role"
-          required
-          placeholder="Role (e.g Donor)"
-          className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
-        />
-        
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            required
+            className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
+          />
+          {/* Role Dropdown */}
+          <select
+            name="role"
+            defaultValue="User"
+            required
+            className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
+          >
+            <option value="User">
+              Select Role
+            </option>
+            <option value="Donor">Donor</option>
+            <option value="Recipient">Recipient</option>
+            <option value="Volunteer">Volunteer</option>
+          </select>
         </div>
         {/* Email Input */}
         <input
@@ -73,7 +81,7 @@ const ReviewForm = () => {
           required
           className="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary-bg"
         />
-        
+
         {/* Message Input */}
         <textarea
           placeholder="Message"
