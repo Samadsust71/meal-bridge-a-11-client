@@ -26,11 +26,10 @@ const ReviewForm = () => {
     const name = form.name.value;
     const role = form.role.value;
     const email = form.email.value;
-    const photo = form.photo.value;
-    const message = form.message.value;
-    const reviewData = { name, role, email, photo, message };
+    const image = form.photo.value;
+    const feedback = form.message.value;
+    const reviewData = { name, role, email, image, feedback };
     await mutateAsync(reviewData);
-    console.log(role)
     form.reset();
   };
 
@@ -59,8 +58,8 @@ const ReviewForm = () => {
             <option value="User">
               Select Role
             </option>
-            <option value="Donor">Donor</option>
-            <option value="Recipient">Recipient</option>
+            <option value="Food Donor">Donor</option>
+            <option value="Food Recipient">Recipient</option>
             <option value="Volunteer">Volunteer</option>
           </select>
         </div>
